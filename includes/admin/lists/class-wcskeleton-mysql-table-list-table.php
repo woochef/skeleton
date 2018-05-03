@@ -37,10 +37,8 @@ class WCSkeleton_MySQL_Table_List_Table extends WP_List_Table {
 	public function prepare_items() {
 		global $wpdb;
 
-		require_wp_db();
-
 		if ( $blog_prefix = $wpdb->get_blog_prefix() ) {
-			$tables = $wpdb->get_results( 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME LIKE \''. $blog_prefix .'%\' LIMIT ' . (($this->get_pagenum() - 1) * 20) . ',20', ARRAY_N ); 
+			$tables = $wpdb->get_results( 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME LIKE \''. $blog_prefix .'%\' LIMIT ' . ( ( $this->get_pagenum() - 1 ) * 20 ) . ',20', ARRAY_N );
 		} else {
 			$tables = $wpdb->get_results( 'SHOW TABLES', ARRAY_N ); 
 		}

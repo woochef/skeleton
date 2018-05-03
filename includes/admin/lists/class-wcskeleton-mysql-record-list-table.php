@@ -39,7 +39,7 @@ class WCSkeleton_MySQL_Record_List_Table extends WP_List_Table {
 	public function get_columns() {
 		$colums = array();
 
-		foreach ($this->structure as $value) {
+		foreach ( $this->structure as $value ) {
 			$colums[ $value['field'] ] = $value['field'];
 		}
 
@@ -52,7 +52,7 @@ class WCSkeleton_MySQL_Record_List_Table extends WP_List_Table {
 	public function prepare_items() {
 		global $wpdb;
 
-		$this->items = $wpdb->get_results( 'SELECT * FROM ' . $this->table. ' LIMIT ' . (($this->get_pagenum() - 1) * 20) . ',20' );;
+		$this->items = $wpdb->get_results( 'SELECT * FROM ' . $this->table. ' LIMIT ' . ( ( $this->get_pagenum() - 1 ) * 20 ) . ',20' );
 
 		$this->set_pagination_args( array(
 			'total_items' => $wpdb->query( 'SELECT * FROM ' . $this->table ),
