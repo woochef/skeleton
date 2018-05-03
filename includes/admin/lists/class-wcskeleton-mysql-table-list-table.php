@@ -54,7 +54,7 @@ class WCSkeleton_MySQL_Table_List_Table extends WP_List_Table {
 	}
 
 	public function column_name( $item ) {
-		return $item[0];
+		return sprintf( '<a href="%s">%s</a>' , admin_url( 'admin.php?page=skeleton&action=view&item=' . $item[0] ), $item[0] );
 	}
 
 	public function column_total_row( $item ) {

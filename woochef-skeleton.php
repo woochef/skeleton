@@ -65,6 +65,7 @@ final class WooChef_Skeleton {
 	public function load_classes() {
 		if ( is_admin() ) {
 			require __DIR__ . '/admin/class-wcskeleton-admin.php';
+			require __DIR__ . '/includes/admin/lists/class-wcskeleton-mysql-record-list-table.php';
 			require __DIR__ . '/includes/admin/lists/class-wcskeleton-mysql-table-list-table.php';
 			require __DIR__ . '/includes/class-wcskeleton-menu.php';
 		}
